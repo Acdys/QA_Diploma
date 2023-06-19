@@ -20,8 +20,8 @@
 - [Отчёт о проведённой автоматизации]( https://github.com/Acdys/QA_Diploma/blob/main/docs/Summary.md)
 
 #### Необходимое окружение:
-    - установленный Docker;
-    - есть подключение к СУБД MySQL и PostgreSQL.
+- установленный Docker;
+- есть подключение к СУБД MySQL и PostgreSQL.
 
 ### Необходимые шаги для запуска автотестов:
 
