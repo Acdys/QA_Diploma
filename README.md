@@ -33,17 +33,23 @@ git clone git@github.com: Acdys/QA_Diploma.git
 ```
 docker-compose up
 ```
-3.	Запустить тестируемую систему с помощью jar-файла
+3.	Запустить тестируемую систему с помощью jar-файла для MySql
 ```  
-java -jar artifacts/aqa-shop.jar 
+java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar
 ```
-
-4.	Запустить автотесты 
+4.	Запустить тестируемую систему с помощью jar-файла для PostgreSQL 
 ```
-./gradlew clean test 
+java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar
 ```
-
-5.	Запустить формирование отчета с помощью Allure 
+5.	Запустить тесты для MySql 
+```
+./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"
+```
+6.	Запустить тесты для PostgreSQL 
+```
+./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app"
+```
+7.	Запустить формирование отчета с помощью Allure
 ```
 ./gradlew allureReport
 ```
