@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
+
 public class SQLHelper {
     private static final QueryRunner runner = new QueryRunner();
 
@@ -37,7 +38,7 @@ public class SQLHelper {
     private static String getResult(String query) {
         String result;
         var runner = new QueryRunner();
-        try (var connection = getConn()) {
+        var connection = getConn(); {
             result = runner.query(connection, query, new ScalarHandler<>());
         }
         return result;

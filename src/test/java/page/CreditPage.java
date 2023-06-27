@@ -12,7 +12,8 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class CreditPage {
 
-
+    /*для полей*/
+    private final SelenideElement heading = $$("h3").find(text("Кредит по данным карты"));
     private final SelenideElement cardNumberField = $("[placeholder='0000 0000 0000 0000']");
     private final SelenideElement monthField = $("[placeholder='08']");
     private final SelenideElement yearField = $("[placeholder='22']");
@@ -29,8 +30,7 @@ public class CreditPage {
     private final SelenideElement invalidCardExpirationDateMessage = $(byText("Неверно указан срок действия карты"));
     private final SelenideElement cardExpiredMessage = $(byText("Истёк срок действия карты"));
 
-    public CreditPage(){
-        SelenideElement heading = $$("h3").find(text("Кредит по данным карты"));
+    public CreditPage() {
         heading.shouldBe(visible);
     }
 
@@ -45,32 +45,32 @@ public class CreditPage {
 
     /*для проверки пустого поля*/
     public void textValidationForTheCardNumberField(String text) {
-        cardNumberField.shouldHave(text(text), Duration.ofSeconds(12)).shouldBe(visible);
+        cardNumberField.shouldHave(text(text)).shouldBe(visible);
     }
 
     public void textValidationForTheMonthField(String text) {
-        monthField.shouldHave(text(text), Duration.ofSeconds(12)).shouldBe(visible);
+        monthField.shouldHave(text(text)).shouldBe(visible);
     }
 
     public void textValidationForTheYearField(String text) {
-        yearField.shouldHave(text(text), Duration.ofSeconds(12)).shouldBe(visible);
+        yearField.shouldHave(text(text)).shouldBe(visible);
     }
 
     public void textValidationForTheHolderField(String text) {
-        holderField.shouldHave(text(text), Duration.ofSeconds(12)).shouldBe(visible);
+        holderField.shouldHave(text(text)).shouldBe(visible);
     }
 
     public void textValidationForTheCVCField(String text) {
-        cvcField.shouldHave(text(text), Duration.ofSeconds(12)).shouldBe(visible);
+        cvcField.shouldHave(text(text)).shouldBe(visible);
     }
 
     /*методы для вывода сообщений*/
     public void setSuccessNotificationVisible() {
-        successNOTIF.shouldBe(visible, Duration.ofSeconds(12));
+        successNOTIF.shouldBe(visible, Duration.ofSeconds(15));
     }
 
     public void setErrorNotificationVisible() {
-        errorNOTIF.shouldBe(visible, Duration.ofSeconds(12));
+        errorNOTIF.shouldBe(visible, Duration.ofSeconds(15));
     }
 
     public void setRequiredFieldVisible() {
@@ -92,5 +92,4 @@ public class CreditPage {
     public void setCardExpiredMessageVisible() {
         cardExpiredMessage.shouldBe(visible, Duration.ofSeconds(12));
     }
-
 }

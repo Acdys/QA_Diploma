@@ -9,6 +9,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class InfoPage {
 
+    private final SelenideElement heading = $$("h2").find(text("Путешествие дня"));
     private final SelenideElement buttonBuy = $(byText("Купить"));
     private final SelenideElement buttonCredit = $(byText("Купить в кредит"));
 
